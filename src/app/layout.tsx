@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -14,9 +15,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav style={{ backgroundColor: "whitesmoke", color: "black", display: "flex", justifyContent: "space-between", alignItems: "center", padding: 10 }}>
+          <img style={{ width: 100, height: 50 }} src="https://static-00.iconduck.com/assets.00/nextjs-icon-2048x1234-pqycciiu.png" />
+          <div className="d-flex">
+            <a href="/Home" className="nav-link" style={{ marginRight: 20 }}>Home</a>
+            <a href="/Login" className="nav-link" style={{ marginRight: 20 }}>Login</a>
+            <a href="/Register" className="nav-link" style={{ marginRight: 20 }}>Register</a>
+          </div>
+        </nav>
+        {children}
+      </body>
     </html>
+
   )
 }
